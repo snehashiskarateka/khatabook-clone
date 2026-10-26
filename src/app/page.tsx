@@ -99,17 +99,17 @@ export default function Dashboard() {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-[rgb(var(--background))] flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
-          <span className="text-sm font-medium text-[rgb(var(--muted-foreground))]">Loading...</span>
+          <span className="text-sm font-medium text-muted-foreground]">Loading...</span>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[rgb(var(--background))]">
+    <div className="min-h-screen bg-background">
       <AppHeader
         user={user ? { email: user.email || "", name: user.user_metadata?.full_name } : null}
         onSearch={setSearch}
@@ -128,18 +128,18 @@ export default function Dashboard() {
         {/* Search & Filters */}
         <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[rgb(var(--muted-foreground))]" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground]" />
             <input
               type="search"
               placeholder="Search parties..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full h-11 pl-10 pr-4 rounded-xl border bg-[rgb(var(--background))] text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--ring))] focus:border-transparent transition-all"
+              className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent transition-all"
             />
           </div>
 
           <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-            <div className="flex items-center gap-2 bg-[rgb(var(--secondary))] rounded-xl p-1">
+            <div className="flex items-center gap-2 bg-secondary] rounded-xl p-1">
               {(["all", "customers", "suppliers", "pending"] as const).map((f) => (
                 <button
                   key={f}
@@ -147,8 +147,8 @@ export default function Dashboard() {
                   className={cn(
                     "px-4 py-2 rounded-lg text-sm font-medium transition-all",
                     filter === f
-                      ? "bg-[rgb(var(--background))] shadow-sm text-[rgb(var(--foreground))]"
-                      : "text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--foreground))]"
+                      ? "bg-background shadow-sm text-foreground]"
+                      : "text-muted-foreground] hover:text-foreground]"
                   )}
                 >
                   {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -171,10 +171,10 @@ export default function Dashboard() {
         {/* Parties List */}
         <div className="mt-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-[rgb(var(--foreground))]">
+            <h2 className="text-xl font-bold text-foreground]">
               Parties ({filteredParties.length})
             </h2>
-            <div className="text-sm text-[rgb(var(--muted-foreground))]">
+            <div className="text-sm text-muted-foreground]">
               {partyBalances.filter((p) => p.balance > 0).length} to receive •{" "}
               {partyBalances.filter((p) => p.balance < 0).length} to pay
             </div>
@@ -229,7 +229,7 @@ export default function Dashboard() {
             type="tel"
           />
           <div>
-            <label className="block text-sm font-medium text-[rgb(var(--foreground))] mb-2">Party Type</label>
+            <label className="block text-sm font-medium text-foreground] mb-2">Party Type</label>
             <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
@@ -238,7 +238,7 @@ export default function Dashboard() {
                   "py-3 px-4 rounded-xl font-semibold border transition-all",
                   newPartyType === "customer"
                     ? "bg-emerald-50 border-emerald-300 text-emerald-800 dark:bg-emerald-900/30 dark:border-emerald-800 dark:text-emerald-400"
-                    : "bg-[rgb(var(--secondary))] border-[rgb(var(--border))] text-[rgb(var(--foreground))] hover:bg-[rgb(var(--accent))]"
+                    : "bg-secondary] border-border] text-foreground] hover:bg-accent]"
                 )}
               >
                 Customer
@@ -250,7 +250,7 @@ export default function Dashboard() {
                   "py-3 px-4 rounded-xl font-semibold border transition-all",
                   newPartyType === "supplier"
                     ? "bg-indigo-50 border-indigo-300 text-indigo-800 dark:bg-indigo-900/30 dark:border-indigo-800 dark:text-indigo-400"
-                    : "bg-[rgb(var(--secondary))] border-[rgb(var(--border))] text-[rgb(var(--foreground))] hover:bg-[rgb(var(--accent))]"
+                    : "bg-secondary] border-border] text-foreground] hover:bg-accent]"
                 )}
               >
                 Supplier
@@ -264,12 +264,12 @@ export default function Dashboard() {
             onChange={(e) => setNewPartyGstin(e.target.value.toUpperCase())}
           />
           <div>
-            <label className="block text-sm font-medium text-[rgb(var(--foreground))] mb-1.5">Address (Optional)</label>
+            <label className="block text-sm font-medium text-foreground] mb-1.5">Address (Optional)</label>
             <textarea
               value={newPartyAddress}
               onChange={(e) => setNewPartyAddress(e.target.value)}
               rows={3}
-              className="w-full px-4 py-3 rounded-xl border bg-[rgb(var(--background))] text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(var(--ring))] focus:border-transparent transition-all resize-none"
+              className="w-full px-4 py-3 rounded-xl border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent transition-all resize-none"
               placeholder="Shop/Street address..."
             />
           </div>

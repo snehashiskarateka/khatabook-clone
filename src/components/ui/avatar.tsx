@@ -26,7 +26,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         <div
           ref={ref}
           className={cn(
-            "relative inline-flex shrink-0 overflow-hidden rounded-full bg-[rgb(var(--muted))]",
+            "relative inline-flex shrink-0 overflow-hidden rounded-full bg-muted]",
             sizeClasses[size],
             className
           )}

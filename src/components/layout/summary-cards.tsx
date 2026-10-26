@@ -55,7 +55,7 @@ export function SummaryCard({ title, amount, icon, trend = "neutral", trendLabel
         <CardContent className="p-6">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-sm font-medium text-[rgb(var(--muted-foreground))] uppercase tracking-wider mb-2">
+              <p className="text-sm font-medium text-muted-foreground] uppercase tracking-wider mb-2">
                 {title}
               </p>
               <p className={cn("text-3xl font-bold tracking-tight", c.text)}>

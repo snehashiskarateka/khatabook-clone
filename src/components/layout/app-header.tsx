@@ -23,7 +23,7 @@ export function AppHeader({
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 glass border-b border-[rgb(var(--border))]">
+    <header className="sticky top-0 z-40 glass border-b border-border]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Left: Logo & Business Selector */}
@@ -43,14 +43,14 @@ export function AppHeader({
                 <span className="text-white font-bold text-lg">K</span>
               </div>
               <div className="hidden sm:block">
-                <h1 className="font-bold text-lg text-[rgb(var(--foreground))]">Khatabook</h1>
-                <p className="text-xs text-[rgb(var(--muted-foreground))]">Digital Ledger</p>
+                <h1 className="font-bold text-lg text-foreground]">Khatabook</h1>
+                <p className="text-xs text-muted-foreground]">Digital Ledger</p>
               </div>
             </div>
 
             {/* Business Selector */}
-            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[rgb(var(--secondary))] border border-[rgb(var(--border))]">
-              <Building2 className="h-4 w-4 text-[rgb(var(--muted-foreground))]" />
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary] border border-border]">
+              <Building2 className="h-4 w-4 text-muted-foreground]" />
               <Select
                 value="main"
                 onChange={() => {}}
@@ -60,18 +60,18 @@ export function AppHeader({
                 ]}
                 className="bg-transparent border-0 px-0 py-0 h-auto text-sm font-medium w-auto"
               />
-              <ChevronDown className="h-4 w-4 text-[rgb(var(--muted-foreground))]" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground]" />
             </div>
 
             {/* Search Bar */}
             <div className="relative flex-1 max-w-xl hidden lg:block">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[rgb(var(--muted-foreground))]" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground]" />
               <input
                 type="search"
                 placeholder="Search parties, bills, transactions..."
                 value={searchValue}
                 onChange={(e) => onSearch(e.target.value)}
-                className="w-full h-10 pl-10 pr-4 rounded-xl bg-[rgb(var(--secondary))] border border-[rgb(var(--border))] text-sm text-[rgb(var(--foreground))] placeholder:text-[rgb(var(--muted-foreground))] focus:outline-none focus:ring-2 focus:ring-[rgb(var(--ring))] focus:border-transparent transition-all"
+                className="w-full h-10 pl-10 pr-4 rounded-xl bg-secondary] border border-border] text-sm text-foreground] placeholder:text-muted-foreground] focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent transition-all"
               />
             </div>
           </div>
@@ -81,13 +81,13 @@ export function AppHeader({
             {/* Mobile Search */}
             <div className="lg:hidden flex-1">
               <div className="relative">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[rgb(var(--muted-foreground))]" />
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground]" />
                 <input
                   type="search"
                   placeholder="Search..."
                   value={searchValue}
                   onChange={(e) => onSearch(e.target.value)}
-                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-[rgb(var(--secondary))] border border-[rgb(var(--border))] text-sm"
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-secondary] border border-border] text-sm"
                 />
               </div>
             </div>
@@ -118,7 +118,7 @@ export function AppHeader({
             <div className="relative">
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-[rgb(var(--secondary))] transition-colors"
+                className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-secondary] transition-colors"
                 aria-label="User menu"
               >
                 <Avatar
@@ -126,10 +126,10 @@ export function AppHeader({
                   size="md"
                   className="bg-gradient-to-br from-indigo-500 to-indigo-700"
                 />
-                <span className="hidden sm:block text-sm font-medium text-[rgb(var(--foreground))]">
+                <span className="hidden sm:block text-sm font-medium text-foreground]">
                   {user?.name || "User"}
                 </span>
-                <ChevronDown className="h-4 w-4 text-[rgb(var(--muted-foreground))] hidden sm:block" />
+                <ChevronDown className="h-4 w-4 text-muted-foreground] hidden sm:block" />
               </button>
 
               {userMenuOpen && (
