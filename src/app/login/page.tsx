@@ -47,8 +47,8 @@ export default function LoginPage() {
           >
             <span className="text-white font-bold text-4xl tracking-tight">K</span>
           </motion.div>
-          <h1 className="text-3xl font-bold text-foreground] mb-2">Khatabook</h1>
-          <p className="text-muted-foreground]">Your premium digital ledger</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Khatabook</h1>
+          <p className="text-muted-foreground">Your premium digital ledger</p>
         </div>
 
         {/* Login Card */}
@@ -56,7 +56,7 @@ export default function LoginPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
-          className="bg-card] border border-border] rounded-2xl p-8 shadow-xl"
+          className="bg-card border border-border rounded-2xl p-8 shadow-xl"
         >
           <form onSubmit={handleSubmit} className="space-y-5">
             <Input
@@ -98,8 +98,8 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-border] text-center">
-            <p className="text-sm text-muted-foreground]">
+          <div className="mt-6 pt-6 border-t border-border text-center">
+            <p className="text-sm text-muted-foreground">
               Shared with family: you & your father only
             </p>
           </div>
@@ -112,32 +112,32 @@ export default function LoginPage() {
           transition={{ duration: 0.4, delay: 0.5 }}
           className="mt-8 grid grid-cols-3 gap-4 text-center"
         >
-          <div className="p-4 rounded-xl bg-card] border border-border]">
+          <div className="p-4 rounded-xl bg-card border border-border">
             <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center">
               <svg className="h-5 w-5 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <p className="text-xs font-medium text-foreground]">Secure</p>
-            <p className="text-xs text-muted-foreground]">Encrypted data</p>
+            <p className="text-xs font-medium text-foreground">Secure</p>
+            <p className="text-xs text-muted-foreground">Encrypted data</p>
           </div>
-          <div className="p-4 rounded-xl bg-card] border border-border]">
+          <div className="p-4 rounded-xl bg-card border border-border">
             <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center">
               <svg className="h-5 w-5 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <p className="text-xs font-medium text-foreground]">Synced</p>
-            <p className="text-xs text-muted-foreground]">Real-time cloud</p>
+            <p className="text-xs font-medium text-foreground">Synced</p>
+            <p className="text-xs text-muted-foreground">Real-time cloud</p>
           </div>
-          <div className="p-4 rounded-xl bg-card] border border-border]">
+          <div className="p-4 rounded-xl bg-card border border-border">
             <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center">
               <svg className="h-5 w-5 text-amber-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
               </svg>
             </div>
-            <p className="text-xs font-medium text-foreground]">GST Ready</p>
-            <p className="text-xs text-muted-foreground]">Tax compliant</p>
+            <p className="text-xs font-medium text-foreground">GST Ready</p>
+            <p className="text-xs text-muted-foreground">Tax compliant</p>
           </div>
         </motion.div>
       </motion.div>

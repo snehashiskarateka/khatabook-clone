@@ -57,19 +57,19 @@ export function Modal({
           >
             <div
               className={cn(
-                "w-full bg-card] rounded-2xl shadow-xl border border-border] pointer-events-auto",
+                "w-full bg-card rounded-2xl shadow-xl border border-border pointer-events-auto",
                 sizeClasses[size]
               )}
               onClick={(e) => e.stopPropagation()}
             >
               {(title || showClose) && (
-                <div className="flex items-start justify-between p-6 border-b border-border]">
+                <div className="flex items-start justify-between p-6 border-b border-border">
                   <div>
                     {title && (
-                      <h2 className="text-lg font-semibold text-foreground]">{title}</h2>
+                      <h2 className="text-lg font-semibold text-foreground">{title}</h2>
                     )}
                     {description && (
-                      <p className="mt-1 text-sm text-muted-foreground]">{description}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{description}</p>
                     )}
                   </div>
                   {showClose && (
@@ -77,7 +77,7 @@ export function Modal({
                       variant="ghost"
                       size="icon"
                       onClick={onClose}
-                      className="h-8 w-8 text-muted-foreground] hover:text-foreground]"
+                      className="h-8 w-8 text-muted-foreground hover:text-foreground"
                       aria-label="Close modal"
                     >
                       <X className="h-4 w-4" />

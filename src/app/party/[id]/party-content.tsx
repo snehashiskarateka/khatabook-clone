@@ -11,6 +11,7 @@ import { Modal } from "@/components/ui/modal";
 import { Button } from "@/components/ui/button";
 import { cn, formatCurrency, formatDate } from "@/lib/utils";
 import { ArrowLeft, Phone, MoreVertical, Trash2, Calendar, FileText, IndianRupee, CreditCard, Wallet } from "lucide-react";
+import { BottomNav } from "@/components/layout/bottom-nav";
 
 export default function PartyContent({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
@@ -85,7 +86,7 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
-          <span className="text-sm font-medium text-muted-foreground]">Loading ledger...</span>
+          <span className="text-sm font-medium text-muted-foreground">Loading ledger...</span>
         </div>
       </div>
     );
@@ -94,7 +95,7 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
   if (!party) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
-        <p className="text-muted-foreground] font-medium">Party not found</p>
+        <p className="text-muted-foreground font-medium">Party not found</p>
         <Button variant="secondary" onClick={() => router.push("/")} className="mt-4">
           <ArrowLeft className="h-4 w-4 mr-2" /> Back to Dashboard
         </Button>
@@ -122,15 +123,15 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
                 {party.name.charAt(0).toUpperCase()}
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground]">{party.name}</h1>
-                <p className="text-muted-foreground]">{party.phone || "No phone number"}</p>
+                <h1 className="text-2xl font-bold text-foreground">{party.name}</h1>
+                <p className="text-muted-foreground">{party.phone || "No phone number"}</p>
               </div>
             </div>
             {party.gstin && (
-              <p className="mt-2 text-sm font-mono text-muted-foreground]">GSTIN: {party.gstin}</p>
+              <p className="mt-2 text-sm font-mono text-muted-foreground">GSTIN: {party.gstin}</p>
             )}
             {party.address && (
-              <p className="mt-1 text-sm text-muted-foreground] flex items-center gap-1">
+              <p className="mt-1 text-sm text-muted-foreground flex items-center gap-1">
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -188,8 +189,8 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
         {/* Transactions */}
         <div className="mt-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-foreground]">Transactions</h2>
-            <div className="flex items-center gap-3 text-sm text-muted-foreground]">
+            <h2 className="text-xl font-bold text-foreground">Transactions</h2>
+            <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <span className="flex items-center gap-1 text-emerald-600">
                 <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 {totalGot > 0 ? formatCurrency(totalGot) : "0"}
@@ -243,11 +244,11 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
       >
         <form onSubmit={handleAddTransaction} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-foreground] mb-2">
+            <label className="block text-sm font-medium text-foreground mb-2">
               {txType === "got" ? "Received" : "Paid"} Amount (₹) *
             </label>
             <div className="relative">
-              <IndianRupee className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground]" />
+              <IndianRupee className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <input
                 type="number"
                 step="0.01"
@@ -255,7 +256,7 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
                 placeholder="0.00"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full pl-12 pr-4 h-12 rounded-xl border bg-background text-right text-xl font-bold focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent transition-all"
+                className="w-full pl-12 pr-4 h-12 rounded-xl border bg-background text-right text-xl font-bold focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                 autoFocus
               />
             </div>
@@ -263,41 +264,41 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-foreground] mb-1.5">Date *</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Date *</label>
               <div className="relative">
-                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground]" />
+                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <input
                   type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full pl-12 pr-4 h-11 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent"
+                  className="w-full pl-12 pr-4 h-11 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground] mb-1.5">Bill No (Optional)</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Bill No (Optional)</label>
               <div className="relative">
-                <FileText className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground]" />
+                <FileText className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <input
                   type="text"
                   placeholder="e.g. INV-001"
                   value={billNo}
                   onChange={(e) => setBillNo(e.target.value)}
-                  className="w-full pl-12 pr-4 h-11 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent"
+                  className="w-full pl-12 pr-4 h-11 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
                 />
               </div>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-foreground] mb-1.5">Notes / Description</label>
+            <label className="block text-sm font-medium text-foreground mb-1.5">Notes / Description</label>
             <div className="relative">
-              <CreditCard className="absolute left-4 top-4 h-5 w-5 text-muted-foreground]" />
+              <CreditCard className="absolute left-4 top-4 h-5 w-5 text-muted-foreground" />
               <textarea
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 rows={3}
-                className="w-full pl-12 pr-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent resize-none"
+                className="w-full pl-12 pr-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent resize-none"
                 placeholder="e.g. Cash payment, advance, partial settlement..."
               />
             </div>
@@ -317,6 +318,7 @@ export default function PartyContent({ params }: { params: Promise<{ id: string 
           </div>
         </form>
       </Modal>
+      <BottomNav />
     </div>
   );
 }

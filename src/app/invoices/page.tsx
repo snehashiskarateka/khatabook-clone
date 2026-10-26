@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/dropdown";
 import { cn, formatCurrency, formatDate } from "@/lib/utils";
 import { Plus, FileText, Trash2, Search, Eye, Edit, Download, MoreVertical } from "lucide-react";
+import { BottomNav } from "@/components/layout/bottom-nav";
 
 export default function InvoicesPage() {
   const { user, loading: authLoading } = useAuth();
@@ -130,7 +131,7 @@ export default function InvoicesPage() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
-          <span className="text-sm font-medium text-muted-foreground]">Loading invoices...</span>
+          <span className="text-sm font-medium text-muted-foreground">Loading invoices...</span>
         </div>
       </div>
     );
@@ -148,8 +149,8 @@ export default function InvoicesPage() {
         {/* Header Actions */}
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-foreground]">GST Invoices</h1>
-            <p className="text-muted-foreground] mt-1">Generate professional tax invoices with auto-filled party details</p>
+            <h1 className="text-3xl font-bold text-foreground">GST Invoices</h1>
+            <p className="text-muted-foreground mt-1">Generate professional tax invoices with auto-filled party details</p>
           </div>
           <Button variant="primary" size="lg" onClick={openCreateModal} className="gap-2">
             <Plus className="h-5 w-5" />
@@ -160,24 +161,24 @@ export default function InvoicesPage() {
         {/* Search */}
         <div className="mb-6 max-w-md">
           <div className="relative">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground]" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="search"
               placeholder="Search invoices by number, party, or amount..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent"
+              className="w-full h-11 pl-10 pr-4 rounded-xl border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
             />
           </div>
         </div>
 
         {/* Invoices List */}
-        <div className="bg-card] border border-border] rounded-2xl overflow-hidden">
+        <div className="bg-card border border-border rounded-2xl overflow-hidden">
           {invoices.length === 0 ? (
             <div className="py-16 px-6 text-center">
-              <FileText className="h-16 w-16 mx-auto text-muted-foreground] mb-4" />
-              <h3 className="text-lg font-semibold text-foreground] mb-2">No invoices yet</h3>
-              <p className="text-muted-foreground] mb-6">Generate your first GST tax invoice with auto-filled party details</p>
+              <FileText className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+              <h3 className="text-lg font-semibold text-foreground mb-2">No invoices yet</h3>
+              <p className="text-muted-foreground mb-6">Generate your first GST tax invoice with auto-filled party details</p>
               <Button variant="primary" onClick={openCreateModal} className="gap-2">
                 <Plus className="h-4 w-4" />
                 Create Invoice
@@ -186,7 +187,7 @@ export default function InvoicesPage() {
           ) : (
             <div className="divide-y divide-[rgb(var(--border))]">
               {invoices.map((inv) => (
-                <div key={inv.id} className="p-5 hover:bg-accent] transition-colors">
+                <div key={inv.id} className="p-5 hover:bg-accent transition-colors">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div className="flex items-center gap-4 min-w-0">
                       <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0">
@@ -194,12 +195,12 @@ export default function InvoicesPage() {
                       </div>
                       <div>
                         <div className="flex items-center gap-3">
-                          <span className="font-mono font-bold text-lg text-foreground]">{inv.invoice_no}</span>
+                          <span className="font-mono font-bold text-lg text-foreground">{inv.invoice_no}</span>
                           <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400">
                             {inv.status.toUpperCase()}
                           </span>
                         </div>
-                        <div className="flex items-center gap-4 mt-1 text-sm text-muted-foreground]">
+                        <div className="flex items-center gap-4 mt-1 text-sm text-muted-foreground">
                           <span>{inv.parties?.name || "Unknown Party"}</span>
                           <span>{formatDate(inv.date)}</span>
                           {inv.due_date && <span>Due: {formatDate(inv.due_date)}</span>}
@@ -209,8 +210,8 @@ export default function InvoicesPage() {
 
                     <div className="flex items-center gap-3 flex-shrink-0">
                       <div className="text-right hidden sm:block">
-                        <p className="font-bold text-xl text-foreground]">{formatCurrency(inv.total)}</p>
-                        <p className="text-xs text-muted-foreground]">Total Amount</p>
+                        <p className="font-bold text-xl text-foreground">{formatCurrency(inv.total)}</p>
+                        <p className="text-xs text-muted-foreground">Total Amount</p>
                       </div>
                       <div className="flex items-center gap-1">
                         <Button variant="ghost" size="icon" className="h-9 w-9" aria-label="View invoice">
@@ -243,23 +244,23 @@ export default function InvoicesPage() {
           {/* Invoice Header */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-foreground] mb-1.5">Invoice Number *</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Invoice Number *</label>
               <input
                 type="text"
                 required
                 value={invoiceNo}
                 onChange={(e) => setInvoiceNo(e.target.value.toUpperCase())}
-                className="w-full px-4 py-3 rounded-xl border bg-background font-mono font-bold focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-xl border bg-background font-mono font-bold focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-foreground] mb-1.5">Date *</label>
+              <label className="block text-sm font-medium text-foreground mb-1.5">Date *</label>
               <input
                 type="date"
                 required
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent"
+                className="w-full px-4 py-3 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
               />
             </div>
           </div>
@@ -281,19 +282,19 @@ export default function InvoicesPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-white dark:bg-slate-800/50 rounded-lg p-4">
                 <div>
                   <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Name</p>
-                  <p className="font-semibold text-foreground]">{selectedParty.name}</p>
+                  <p className="font-semibold text-foreground">{selectedParty.name}</p>
                 </div>
                 <div>
                   <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Phone</p>
-                  <p className="font-medium text-foreground]">{selectedParty.phone || "N/A"}</p>
+                  <p className="font-medium text-foreground">{selectedParty.phone || "N/A"}</p>
                 </div>
                 <div>
                   <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">GSTIN</p>
-                  <p className="font-medium font-mono text-foreground]">{selectedParty.gstin || "Unregistered"}</p>
+                  <p className="font-medium font-mono text-foreground">{selectedParty.gstin || "Unregistered"}</p>
                 </div>
                 <div className="lg:col-span-4">
                   <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Address</p>
-                  <p className="font-medium text-foreground]">{selectedParty.address || "N/A"}</p>
+                  <p className="font-medium text-foreground">{selectedParty.address || "N/A"}</p>
                 </div>
               </div>
             )}
@@ -302,7 +303,7 @@ export default function InvoicesPage() {
           {/* Items */}
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-foreground]">Invoice Items</h3>
+              <h3 className="text-lg font-semibold text-foreground">Invoice Items</h3>
               <Button variant="outline" size="sm" onClick={addItemRow} className="gap-1">
                 <Plus className="h-4 w-4" />
                 Add Item
@@ -311,7 +312,7 @@ export default function InvoicesPage() {
 
             <div className="space-y-3">
               {items.map((item, idx) => (
-                <div key={idx} className="bg-secondary] rounded-xl p-4 space-y-3">
+                <div key={idx} className="bg-secondary rounded-xl p-4 space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <Select
@@ -359,7 +360,7 @@ export default function InvoicesPage() {
                       required
                     />
                     <div>
-                      <label className="block text-sm font-medium text-foreground] mb-1.5">GST Rate</label>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">GST Rate</label>
                       <Select
                         value={String(item.gstRate || 18)}
                         onChange={(value: string) => handleItemChange(idx, "gstRate", parseFloat(value))}
@@ -373,9 +374,9 @@ export default function InvoicesPage() {
                       />
                     </div>
                     <div className="flex items-end">
-                      <div className="w-full bg-background rounded-xl px-4 py-3 border border-border]">
-                        <p className="text-xs text-muted-foreground]">Amount</p>
-                        <p className="font-bold text-lg text-foreground]">
+                      <div className="w-full bg-background rounded-xl px-4 py-3 border border-border">
+                        <p className="text-xs text-muted-foreground">Amount</p>
+                        <p className="font-bold text-lg text-foreground">
                           {formatCurrency((item.qty || 0) * (item.rate || 0))}
                         </p>
                       </div>
@@ -389,18 +390,18 @@ export default function InvoicesPage() {
           {/* Totals */}
           <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-5 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground]">Subtotal</span>
+              <span className="text-muted-foreground">Subtotal</span>
               <span className="font-medium">{formatCurrency(subtotal)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground]">CGST (9%)</span>
+              <span className="text-muted-foreground">CGST (9%)</span>
               <span className="font-medium">{formatCurrency(cgst)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground]">SGST (9%)</span>
+              <span className="text-muted-foreground">SGST (9%)</span>
               <span className="font-medium">{formatCurrency(sgst)}</span>
             </div>
-            <div className="border-t border-border] pt-2 flex justify-between text-lg font-bold">
+            <div className="border-t border-border pt-2 flex justify-between text-lg font-bold">
               <span className="text-indigo-600 dark:text-indigo-400">Total Amount</span>
               <span className="text-indigo-600 dark:text-indigo-400">{formatCurrency(total)}</span>
             </div>
@@ -413,7 +414,7 @@ export default function InvoicesPage() {
             onChange={(e) => setNotes(e.target.value)}
           />
 
-          <div className="flex gap-3 pt-4 border-t border-border]">
+          <div className="flex gap-3 pt-4 border-t border-border">
             <Button type="button" variant="secondary" onClick={() => setShowCreate(false)} className="flex-1">
               Cancel
             </Button>
@@ -423,6 +424,7 @@ export default function InvoicesPage() {
           </div>
         </form>
       </Modal>
+      <BottomNav />
     </div>
   );
 }

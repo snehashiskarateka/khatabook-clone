@@ -43,7 +43,7 @@ export function TransactionItem({
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay, ease: "easeOut" }}
     >
-      <div className="bg-card] border border-border] rounded-xl p-4 hover:bg-accent] transition-colors">
+      <div className="bg-card border border-border rounded-xl p-4 hover:bg-accent transition-colors">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <div className={cn(
@@ -64,7 +64,7 @@ export function TransactionItem({
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <p className="font-medium text-foreground] truncate">
+                <p className="font-medium text-foreground truncate">
                   {transaction.partyName || "Unknown Party"}
                 </p>
                 {transaction.billNo && (
@@ -73,7 +73,7 @@ export function TransactionItem({
                   </Badge>
                 )}
               </div>
-              <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground]">
+              <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -150,7 +150,7 @@ export function TransactionList({
     return (
       <EmptyState
         icon={
-          <svg className="h-12 w-12 text-muted-foreground]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="h-12 w-12 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
           </svg>
         }

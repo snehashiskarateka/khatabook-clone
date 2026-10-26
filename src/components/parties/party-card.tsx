@@ -56,14 +56,14 @@ export function PartyCard({
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <h3 className="font-semibold text-lg text-foreground] truncate">
+                  <h3 className="font-semibold text-lg text-foreground truncate">
                     {party.name}
                   </h3>
                   <Badge variant={party.type === "customer" ? "success" : "secondary"}>
                     {party.type === "customer" ? "Customer" : "Supplier"}
                   </Badge>
                 </div>
-                <div className="flex flex-wrap items-center gap-3 mt-1.5 text-sm text-muted-foreground]">
+                <div className="flex flex-wrap items-center gap-3 mt-1.5 text-sm text-muted-foreground">
                   {party.phone && (
                     <span className="flex items-center gap-1">
                       <Phone className="h-3.5 w-3.5" />
@@ -78,12 +78,12 @@ export function PartyCard({
                   )}
                 </div>
                 {party.address && (
-                  <p className="mt-1 text-xs text-muted-foreground] truncate flex items-center gap-1">
+                  <p className="mt-1 text-xs text-muted-foreground truncate flex items-center gap-1">
                     <MapPin className="h-3 w-3 flex-shrink-0" />
                     {party.address}
                   </p>
                 )}
-                <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground]">
+                <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground">
                   <span>{party.txCount} transactions</span>
                   <span className="text-[rgb(var(--border))]">•</span>
                   <span>{new Date(party.createdAt).toLocaleDateString("en-IN", { month: "short", year: "numeric" })}</span>
@@ -174,7 +174,7 @@ export function PartyList({
   if (parties.length === 0) {
     return (
       <EmptyState
-        icon={<Building2 className="h-12 w-12 text-muted-foreground]" />}
+        icon={<Building2 className="h-12 w-12 text-muted-foreground" />}
         title="No parties yet"
         description={emptyMessage}
         action={{

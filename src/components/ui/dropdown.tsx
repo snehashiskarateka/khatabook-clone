@@ -47,13 +47,13 @@ export function DropdownMenu({ trigger, items, onSelect, align = "end" }: Dropdo
             exit={{ opacity: 0, y: -8, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className={cn(
-              "absolute z-50 mt-2 w-56 origin-top-right rounded-xl bg-card] border border-border] shadow-lg p-1",
+              "absolute z-50 mt-2 w-56 origin-top-right rounded-xl bg-card border border-border shadow-lg p-1",
               align === "end" ? "right-0" : "left-0"
             )}
           >
             {items.map((item, index) =>
               item.divider ? (
-                <hr key={`divider-${index}`} className="my-1 border-border]" />
+                <hr key={`divider-${index}`} className="my-1 border-border" />
               ) : (
                 <button
                   key={item.value || index}
@@ -66,9 +66,9 @@ export function DropdownMenu({ trigger, items, onSelect, align = "end" }: Dropdo
                   disabled={item.disabled || !item.value}
                   className={cn(
                     "w-full flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors",
-                    "hover:bg-accent] text-foreground]",
+                    "hover:bg-accent text-foreground",
                     "disabled:opacity-50 disabled:cursor-not-allowed",
-                    "focus-visible:outline-none focus-visible:bg-accent]"
+                    "focus-visible:outline-none focus-visible:bg-accent"
                   )}
                 >
                   {item.icon && <span className="flex h-4 w-4">{item.icon}</span>}
@@ -117,17 +117,17 @@ export function Select({ value, onChange, options, placeholder, className, disab
         className={cn(
           "w-full flex items-center justify-between h-11 px-4 rounded-xl border bg-background text-sm transition-all",
           "border-input]",
-          "hover:border-[rgb(var(--ring))] focus:outline-none focus:ring-2 focus:ring-ring] focus:border-transparent",
+          "hover:border-[rgb(var(--ring))] focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className
         )}
       >
-        <span className={cn("truncate", !selectedOption && placeholder && "text-muted-foreground]")}>
+        <span className={cn("truncate", !selectedOption && placeholder && "text-muted-foreground")}>
           {selectedOption?.label || placeholder}
         </span>
         <ChevronDown
           className={cn(
-            "h-4 w-4 text-muted-foreground] ml-2 flex-shrink-0 transition-transform",
+            "h-4 w-4 text-muted-foreground ml-2 flex-shrink-0 transition-transform",
             open && "rotate-180"
           )}
         />
@@ -139,7 +139,7 @@ export function Select({ value, onChange, options, placeholder, className, disab
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="absolute z-50 mt-2 w-full max-h-60 overflow-auto rounded-xl bg-card] border border-border] shadow-lg py-1"
+            className="absolute z-50 mt-2 w-full max-h-60 overflow-auto rounded-xl bg-card border border-border shadow-lg py-1"
           >
             {options.map((option) => (
               <button
@@ -150,8 +150,8 @@ export function Select({ value, onChange, options, placeholder, className, disab
                 }}
                 className={cn(
                   "w-full flex items-center gap-2 px-3 py-2 text-sm transition-colors",
-                  "hover:bg-accent] text-foreground]",
-                  option.value === value && "bg-accent] font-medium"
+                  "hover:bg-accent text-foreground",
+                  option.value === value && "bg-accent font-medium"
                 )}
               >
                 {option.label}
