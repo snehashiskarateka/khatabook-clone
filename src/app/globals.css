@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Light Theme */
   --color-background: rgb(255 255 255);
   --color-foreground: rgb(15 23 42);
   --color-card: rgb(255 255 255);
@@ -16,14 +15,11 @@
   --color-border: rgb(226 232 240);
   --color-input: rgb(226 232 240);
   --color-ring: rgb(79 70 229);
-
-  /* Custom Khatabook colors */
   --color-kb-give: rgb(220 38 38);
   --color-kb-get: rgb(16 185 129);
 }
 
-@theme dark {
-  /* Dark Theme */
+@utility dark {
   --color-background: rgb(15 23 42);
   --color-foreground: rgb(248 250 252);
   --color-card: rgb(30 41 59);
